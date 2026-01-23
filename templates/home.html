@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-text">
+        <span class="subtitle" data-tr="DÜNYAMA HOŞ GELDİNİZ" data-en="WELCOME TO MY WORLD">WELCOME TO MY WORLD</span>
+        <h1 data-tr="Merhaba, ben Emirhan"
+            data-en="Hello, I'm Emirhan">
+            Hello, I'm Emirhan
+        </h1>
+
+        <p data-tr="Yazılım geliştiricisiyim."
+        data-en="I am a software developer.">
+        I am a software developer.
+        </p>
+
+    </div>
+
+    <div class="hero-image">
+        <img src="{{ url_for('static', filename='images/colgate.jpg') }}"
+            alt="Emirhan profile photo"
+            class="hero-photo">
+    </div>
+
+</section>
+{% endblock %}

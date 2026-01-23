@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      })();
+    </script>
+
+    <title>{% block title %}Portfolio{% endblock %}</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <h2>Emirhan</h2>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/projects">Projects</a>
+        <a href="/hobbies">Hobbies</a>
+        <a href="/favorites">Favorites</a>
+        <a href="/contact">Contact</a>
+      </div>
+
+      <button id="theme-toggle">🌙</button>
+      <div class="language-toggle">
+        <button id="lang-tr">TR</button>
+        <span>|</span>
+        <button id="lang-en">EN</button>
+      </div>
+    </nav>
+
+    {% block content %}{% endblock %}
+
+    <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/language.js') }}"></script>
+  </body>
+</html>
