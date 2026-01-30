@@ -10,18 +10,6 @@ def home():
 def about():
     return render_template("about.html")
 
-@app.route("/projects")
-def projects():
-    return render_template("projects.html")
-
-@app.route("/hobbies")
-def hobbies():
-    return render_template("hobbies.html")
-
-@app.route("/favorites")
-def favorites():
-    return render_template("favorites.html")
-
 @app.route("/contact")
 def contact():
     return render_template("contact.html")
