@@ -1,7 +1,32 @@
-{% extends "base.html" %}
-{% block title %}About{% endblock %}
-
-{% block content %}
-<h1>About Me</h1>
-<p>This page tells my story.</p>
+{% extends "base.html" %} {% block title %}About{% endblock %} {% block content
+%}
+<section class="about">
+  <div class="about-content">
+    <h1 data-en="About Me" data-tr="Hakkımda">About Me</h1>
+    <p
+      class="about-text"
+      data-en="I’m Emirhan, a software developer who loves building clean, efficient, and thoughtful digital experiences."
+      data-tr="Ben Emirhan; temiz, verimli ve özenli dijital deneyimler üretmeyi seven bir yazılım geliştiricisiyim."
+    >
+      I’m Emirhan, a software developer who loves building clean, efficient, and
+      thoughtful digital experiences.
+    </p>
+    <p
+      class="about-text"
+      data-en="My focus is on creating reliable, user‑friendly products by blending solid engineering practices with a strong sense of design and detail."
+      data-tr="Sağlam mühendislik pratiklerini güçlü bir tasarım ve detay anlayışıyla birleştirerek güvenilir ve kullanıcı dostu ürünler geliştirmeye odaklanıyorum."
+    >
+      My focus is on creating reliable, user‑friendly products by blending solid
+      engineering practices with a strong sense of design and detail.
+    </p>
+    <p
+      class="about-text"
+      data-en="I enjoy working across the stack, learning new technologies, and continuously improving the quality and clarity of the work I deliver."
+      data-tr="Tüm katmanlarda çalışmaktan, yeni teknolojiler öğrenmekten ve ortaya koyduğum işin kalitesini ve açıklığını sürekli geliştirmekten keyif alıyorum."
+    >
+      I enjoy working across the stack, learning new technologies, and
+      continuously improving the quality and clarity of the work I deliver.
+    </p>
+  </div>
+</section>
 {% endblock %}

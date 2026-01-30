@@ -4,13 +4,30 @@
     <script>
       (function () {
         const theme = localStorage.getItem("theme");
-        if (theme === "dark") {
-          document.documentElement.setAttribute("data-theme", "dark");
-        }
+        const initialTheme = theme === "dark" ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", initialTheme);
+
+        // Apply saved language immediately to prevent flash
+        const savedLang = localStorage.getItem("language") || "en";
+        document.documentElement.setAttribute("data-lang", savedLang);
+
+        // Pre-apply language content before page renders
+        window.addEventListener("DOMContentLoaded", function () {
+          document.querySelectorAll("[data-tr]").forEach((el) => {
+            el.textContent = el.dataset[savedLang];
+          });
+          document.documentElement.classList.add("lang-loaded");
+        });
       })();
     </script>
 
     <title>{% block title %}Portfolio{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='css/style.css') }}"
@@ -18,22 +35,22 @@
   </head>
   <body>
     <nav class="navbar">
-      <h2>Emirhan</h2>
+      <h2>Emirhan Can</h2>
       <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/projects">Projects</a>
-        <a href="/hobbies">Hobbies</a>
-        <a href="/favorites">Favorites</a>
-        <a href="/contact">Contact</a>
+        <a href="/" data-en="Home" data-tr="Ana Sayfa">Home</a>
+        <a href="/about" data-en="About" data-tr="Hakkımda">About</a>
+        <a href="/contact" data-en="Contact" data-tr="İletişim">Contact</a>
       </div>
 
-      <button id="theme-toggle">🌙</button>
+      <button id="theme-toggle" aria-label="Toggle theme"></button>
       <div class="language-toggle">
         <button id="lang-tr">TR</button>
         <span>|</span>
         <button id="lang-en">EN</button>
       </div>
     </nav>
+
+    <hr class="nav-divider" />
 
     {% block content %}{% endblock %}
 

@@ -1,15 +1,103 @@
-{% extends "base.html" %}
-{% block title %}Contact{% endblock %}
-
-{% block content %}
+{% extends "base.html" %} {% block title %}Contact{% endblock %} {% block
+content %}
 <section class="page">
-    <h1>Contact Me</h1>
+  <div class="contact-links-only">
+    <div class="social-media">
+      <h2 data-en="Links" data-tr="Bağlantılar">Links</h2>
+      <ul>
+        <li>
+          <a href="https://www.linkedin.com/in/emirhan-can/" target="_blank">
+            <img
+              src="{{ url_for('static', filename='images/icons/linkedin.png') }}"
+              alt="LinkedIn"
+              class="social-icon"
+            />
+            LinkedIn
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/canemirhan" target="_blank">
+            <img
+              src="{{ url_for('static', filename='images/icons/github.png') }}"
+              alt="GitHub"
+              class="social-icon"
+            />
+            GitHub
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://stackoverflow.com/users/19494950/canemirhan"
+            target="_blank"
+          >
+            <img
+              src="{{ url_for('static', filename='images/icons/stackoverflow.png') }}"
+              alt="Stack Overflow"
+              class="social-icon"
+            />
+            Stack Overflow
+          </a>
+        </li>
+        <li>
+          <a href="https://www.kaggle.com/emirhancan" target="_blank">
+            <img
+              src="{{ url_for('static', filename='images/icons/kaggle.png') }}"
+              alt="Kaggle"
+              class="social-icon"
+            />
+            Kaggle
+          </a>
+        </li>
+        <li>
+          <a href="https://leetcode.com/u/cannemirhann/" target="_blank">
+            <img
+              src="{{ url_for('static', filename='images/icons/leetcode.png') }}"
+              alt="LeetCode"
+              class="social-icon"
+            />
+            LeetCode
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/canemrhn/" target="_blank">
+            <img
+              src="{{ url_for('static', filename='images/icons/instagram.png') }}"
+              alt="Instagram"
+              class="social-icon"
+            />
+            Instagram
+          </a>
+        </li>
+      </ul>
+    </div>
 
-    <form class="contact-form">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea placeholder="Your Message" rows="5" required></textarea>
-        <button type="submit">Send Message</button>
-    </form>
+    <div class="cv-download">
+      <h2 data-en="Download CV" data-tr="CV İndir">Download CV</h2>
+      <ul>
+        <li>
+          <a
+            href="{{ url_for('static', filename='files/Emirhan_Can_ENG.pdf') }}"
+            download
+            class="cv-attachment"
+          >
+            <span data-en="CV (English)" data-tr="CV (İngilizce)"
+              >CV (English)</span
+            >
+          </a>
+        </li>
+        <li>
+          <a
+            href="{{ url_for('static', filename='files/Emirhan_Can_TR.pdf') }}"
+            download
+            class="cv-attachment"
+          >
+            <span data-en="CV (Turkish)" data-tr="CV (Türkçe)"
+              >CV (Turkish)</span
+            >
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </section>
 {% endblock %}
