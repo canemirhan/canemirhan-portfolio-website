@@ -1,27 +1,23 @@
-{% extends "base.html" %}
-{% block title %}Home{% endblock %}
-
-{% block content %}
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
 <section class="hero">
-    <div class="hero-text">
-        <span class="subtitle" data-tr="Hoşgeldiniz" data-en="Welcome">WELCOME TO MY WORLD</span>
-        <h1 data-tr="Merhaba, ben Emirhan Can"
-            data-en="Hello, I am Emirhan Can">
-            Hello, I'm Emirhan Can
-        </h1>
+  <div class="hero-text">
+    <h1 data-tr="Emirhan Can" data-en="Emirhan Can">Emirhan Can</h1>
 
-        <p data-tr="Bilgisayar mühendisliği öğrencisiyim"
-        data-en="I am a computer engineering student">
-        I am a computer engineering student.
-        </p>
+    <p
+      data-tr="Bilgisayar Mühendisliği Öğrencisi"
+      data-en="Computer Engineering Student"
+    >
+      Computer Engineering Student
+    </p>
+  </div>
 
-    </div>
-
-    <div class="hero-image">
-        <img src="{{ url_for('static', filename='images/photo.jpg') }}"
-            alt="Emirhan profile photo"
-            class="hero-photo">
-    </div>
-
+  <div class="hero-image">
+    <img
+      src="{{ url_for('static', filename='images/photo.jpg') }}"
+      alt="Emirhan profile photo"
+      class="hero-photo"
+    />
+  </div>
 </section>
 {% endblock %}
