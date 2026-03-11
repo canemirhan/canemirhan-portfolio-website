@@ -12,12 +12,21 @@
     </p>
   </div>
 
-  <div class="hero-image">
-    <img
-      src="{{ url_for('static', filename='images/photo.jpg') }}"
-      alt="Emirhan profile photo"
-      class="hero-photo"
-    />
+  <div class="hero-images">
+    <div class="hero-image">
+      <img
+        src="{{ url_for('static', filename='images/photo2.jpg') }}"
+        alt="Emirhan profile photo"
+        class="hero-photo"
+      />
+    </div>
+    <div class="hero-image">
+      <img
+        src="{{ url_for('static', filename='images/photo.jpg') }}"
+        alt="Emirhan second profile photo"
+        class="hero-photo"
+      />
+    </div>
   </div>
 </section>
 {% endblock %}

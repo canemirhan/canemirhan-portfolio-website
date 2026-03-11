@@ -3,6 +3,29 @@ const langButtons = {
     en: document.getElementById("lang-en")
 };
 
+const routeTitles = {
+    "/": { en: "Emirhan Can", tr: "Emirhan Can" },
+    "/about": { en: "Emirhan Can | About", tr: "Emirhan Can | Hakkında" },
+    "/contact": { en: "Emirhan Can | Contact", tr: "Emirhan Can | İletişim" }
+};
+
+function normalizePath(pathname) {
+    if (!pathname || pathname === "/") {
+        return "/";
+    }
+    return pathname.endsWith("/") ? pathname.slice(0, -1) : pathname;
+}
+
+function updatePageTitle(lang, pathname = window.location.pathname) {
+    const key = normalizePath(pathname);
+    const labels = routeTitles[key];
+    if (!labels) {
+        document.title = "Portfolio";
+        return;
+    }
+    document.title = labels[lang] || labels.en;
+}
+
 function setLanguage(lang) {
     document.querySelectorAll("[data-tr]").forEach(el => {
         el.textContent = el.dataset[lang];
@@ -21,7 +44,10 @@ function setLanguage(lang) {
 
     document.documentElement.setAttribute("data-lang", lang);
     localStorage.setItem("language", lang);
+    updatePageTitle(lang);
 }
+
+window.setLanguage = setLanguage;
 
 langButtons.tr.addEventListener("click", () => setLanguage("tr"));
 langButtons.en.addEventListener("click", () => setLanguage("en"));
@@ -29,3 +55,15 @@ langButtons.en.addEventListener("click", () => setLanguage("en"));
 /* Load saved language - data-lang attribute already set in head, just apply content */
 const savedLang = document.documentElement.getAttribute("data-lang") || "en";
 setLanguage(savedLang);
+
+// Set title before full-page navigation starts to avoid hostname/title flash.
+document.querySelectorAll(".nav-links a, .navbar > a").forEach((link) => {
+    link.addEventListener("click", () => {
+        const href = link.getAttribute("href");
+        if (!href || !href.startsWith("/")) {
+            return;
+        }
+        const activeLang = document.documentElement.getAttribute("data-lang") || "en";
+        updatePageTitle(activeLang, href);
+    });
+});
